@@ -3,11 +3,27 @@ export default class BST {
     this.root = null;
   }
 
-  insertNode(node) {
-    this.root = node;
+  search(value) {
+    if (this.root.data === value) {
+      return true;
+    } else {
+      let currentNode = this.root;
+      while (true) {
+        if (currentNode.data === value) {
+          return true;
+        } else if (currentNode.data > value) {
+          currentNode = currentNode.left;
+        } else if (currentNode.data < value) {
+          currentNode = currentNode.right;
+        }
+        if (currentNode === null) {
+          return false;
+        }
+      }
+    }
   }
 
-  insert(insertedNode) {
+  insertNode(insertedNode) {
     if (this.root === null) {
       this.root = insertedNode;
     } else {
@@ -25,7 +41,7 @@ export default class BST {
             currentNode.right = insertedNode;
             return this;
           } else {
-            currentNode = currentNode.right
+            currentNode = currentNode.right;
           }
         } else {
           return this;
@@ -33,4 +49,14 @@ export default class BST {
       }
     }
   }
-}
+
+  insert(node) {
+    if (this.root === null) {
+      this.root = node;
+    } else if (this.root.data > node.data) {
+      this.root.left = node;
+    } else if (this.root.data < node.data) {
+      this.root.right = node;
+    }
+  }
+} 
