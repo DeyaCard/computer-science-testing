@@ -15,8 +15,8 @@ describe("binarySearchTree", () => {
     pbst.insertNode(new BSTNode(7));  
   });
 
-  test('it should return false if the node to be removed does not exist in the tree')
-    expect()
+  // test('it should return false if the node to be removed does not exist in the tree')
+  //   expect()
 
   test('it should return true if the root node is equal to 4', () => {
     expect(pbst.search(4)).toEqual(true);
